@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="">
+    <!-- home -->
+    <!-- Navbar -->
+    <nav class="md:flex bg-sky-800 py-2 md:justify-around ">
+      
+        <span class="text-2xl">WeatherApp</span>
+        <ul class="md:flex ml-5 md:justify-around">
+          <li><a class="cursor-pointer hover:text-white text-gray-300 text-xl mr-2" href="./index.html">Home</a> </li>
+          <li><a class="cursor-pointer hover:text-white text-gray-300 text-xl mr-2" href="./weather.html">weather</a> </li>
+          <li><a class="cursor-pointer hover:text-white text-gray-300 text-xl mr-2" href="./about.html"> About</a> </li>
+        </ul>
+      
+    </nav>
+   
+<!-- main -->
+<div class="md:flex md:justify-evenly ">
+
+
+    <div style="width: 500px;" class="mt-40  ml-12 container ">
+         <span class="text-xl">Welcome to weather app</span>
+      <div class="text-4xl mt-2">Get The Latest <span class="text-sky-600">Weather</span> Info of your city</div>
+     <button class="px-4 py-2 mt-2 rounded-md bg-sky-600 hover:text-sky-600 border-2 border-sky-600  hover:bg-white  ">Check Now</button>
+    </div>
+     <!-- carosal -->
+ <div class="img-slider mt-12">
+  <div class="slide active">
+    <img src="images/bg1.png" alt="">
+  </div>
+  <div class="slide active mt-12">
+      <img src="images/bg2.png" alt="">
+    </div>
+    <div class="slide active mt-12">
+      <img src="images/bg3.png" alt="">
+    </div>
+  <div class="navigation">
+    <div class="btn active"></div>
+    <div class="btn"></div>
+    <div class="btn"></div>
+  </div>
+</div>
+
+   
+  
+      
+</div>
+
+
+<!-- footer  -->
+<footer class="bg-sky-900 mt-20 flex justify-center mx-auto py-5">
+  <span>
+    Created by Akshat Agrawal
+  </span>
+
+</footer>
+
+</body>
+<script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+</html>

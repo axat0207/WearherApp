@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+{{>links}}
+   
+
+{{>style}}
+
+
+
+
+</head>
+<body>
+ 
+
+    {{>header}}
+   
+<!-- main -->
+<div class="md:flex md:justify-evenly ">
+
+
+    <div style="width: 500px;" class="mt-40  ml-12 container ">
+         <span class="text-xl">Welcome to weather app</span>
+      <div class="text-4xl mt-2">Get The Latest <span class="text-sky-600">Weather</span> Info of your city</div>
+     <button class="px-4 py-2 mt-2 rounded-md bg-sky-600 hover:text-sky-600 border-2 border-sky-600  hover:bg-white  ">Check Now</button>
+    </div>
+     <!-- carosal -->
+ <div class="img-slider mt-12">
+  <div class="slide active">
+    <img src="images/bg1.png" alt="">
+  </div>
+  <div class="slide active mt-12">
+      <img src="images/bg2.png" alt="">
+    </div>
+    <div class="slide active mt-12">
+      <img src="images/bg3.png" alt="">
+    </div>
+  <div class="navigation">
+    <div class="btn active"></div>
+    <div class="btn"></div>
+    <div class="btn"></div>
+  </div>
+</div>
+
+   
+  
+      
+</div>
+
+{{>footer}}
+
+
+
+</body>
+{{>script}}
+</html>

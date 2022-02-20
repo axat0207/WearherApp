@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    {{>links}}
+    
+</head>
+<body>
+    {{>header}}
+
+        <div class="">
+            <form class=" flex">
+            <input class=" text-white mx-auto mt-5 w-96 bg-gray-800 rounded-xl px-3 py-2" type="search" placeholder="Enter your city" autocomplete="off" id="cityName">
+           <button id='btn' class="absolute bg-sky-400 text-white hover:text-sky-400 px-3 hover:bg-white rounded-xl" style="right: 324px; top: 71px; height: 35px;" >Search</button>
+
+            </form>
+
+            <div style="height: 250px; width: 300px;" class="mx-auto mt-10 card bg-gray-800 rounded-md shadow-xl">
+                <div class="date flex text-white bg-gray-900 rounded-md justify-between px-2">
+                    <p id="day">Tuesday</p>
+                    <p id="today_date">19 Feb</p>
+                </div>
+                <div class="main mt-4 ">
+                    <div class="flex text-gray-600 ml-4">
+
+                    <p id="city">Please search city</p> <span id="country"></span>
+                    </div>
+                    <div class="middle flex justify-center mt-9 text-white text-5xl">
+                        <p  class="temp"><span id="temp">0</span><span> <sup>o</sup></span><span>C</span> </p>
+                        <p class="icon"> <i class="text-white ml-3 fa fa-cloud"></i> </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    {{>footer}}
+</body>
+{{>backend}}
+</html>

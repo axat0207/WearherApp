@@ -1,0 +1,67 @@
+<script>
+    
+console.log("hello world this is working    ")
+
+{{!-- assigning variables  --}}
+
+  const icon = document.getElementById('icon');
+ const temp = document.getElementById('temp');
+const btn = document.getElementById('btn');
+const cityName = document.getElementById('cityName');
+const city = document.getElementById('city');
+const country = document.getElementById('country');
+
+
+{{!-- setting date   --}}
+
+    let today = document.getElementById('today_date'); 
+    let day = document.getElementById('day'); 
+    let current_date = new Date;
+    const monthNames = ["Jan", "Feb", "Mar", "April", "May", "June",
+        "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+    today.innerHTML = current_date.getDate()+" " + monthNames[current_date.getMonth()];
+    console.log(current_date.getDate());
+
+  
+  {{!-- calling api  --}}
+
+    const getinfo = async(event)=>{
+  
+        event.preventDefault();
+        let cityval = cityName.value;
+        if(cityval === ""){
+            cityName.innerHTML = "Please write city name before search";
+        }
+        else{ 
+            try{
+                let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityval}&units=metric&appid=fd9a6a7dc4a65d6a1cf33747f18acfb1`;
+                const response = await fetch(url);
+                const data = await response.json();
+                const arrdata = [data];
+                city.innerHTML = cityval + ',';
+                country.innerHTML = arrdata[0].sys.country;
+                temp.innerHTML = arrdata[0].main.temp;
+                
+                {{!-- const  tempMood = arrdata[0].weather[0].main;
+                  if(temp_mood = "Mist"){
+                        icon.innerHTML= " <i class= 'fas fa-sun' style = 'color: #eccc68;'></i>";
+                    else if (tempMood = "Clouds"){
+                        icon.innerHTML= "<i class= 'fas fa-sun' style = 'color: #f1f2f6;'></i>";
+                    else if (tempMood = "Rain"){
+                        icon.innerHTML= "<i class= 'fas fa-rain' style = 'color: #a4b0be;'></i>";
+                    else if (tempMood = "Clouds"){
+                        icon.innerHTML= "<i class= 'fas fa-cloud' style = 'color: #f1f2f6;'></i>"; --}}
+                      
+            }catch{
+                    city_name.innerText = "Please enter city name properly"
+            }
+        }
+
+    }
+  
+
+
+  btn.addEventListener('click',getinfo)
+
+</script>
